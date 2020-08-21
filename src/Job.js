@@ -1,19 +1,19 @@
 //this was pasted from the github repo
 
-import React, { useState } from 'react';
-import { Card, Badge, Button, Collapse } from 'react-bootstrap';
-import ReactMarkdown from 'react-markdown';
+import React, { useState } from "react";
+import { Card, Badge, Button, Collapse } from "react-bootstrap";
+import ReactMarkdown from "react-markdown";
 
 export default function Job({ job }) {
   const [open, setOpen] = useState(false);
 
   return (
-    <Card className="mb-3">
+    <Card className="m-3">
       <Card.Body>
         <div className="d-flex justify-content-between">
           <div>
             <Card.Title>
-              {job.title} -{' '}
+              {job.title} -{" "}
               <span className="text-muted font-weight-light">
                 {job.company}
               </span>
@@ -25,7 +25,7 @@ export default function Job({ job }) {
               {job.type}
             </Badge>
             <Badge variant="secondary">{job.location}</Badge>
-            <div style={{ wordBreak: 'break-all' }}>
+            <div style={{ wordBreak: "break-all" }}>
               <ReactMarkdown source={job.how_to_apply} />
             </div>
           </div>
@@ -41,7 +41,7 @@ export default function Job({ job }) {
             onClick={() => setOpen((prevOpen) => !prevOpen)}
             variant="primary"
           >
-            {open ? 'Hide Details' : 'View Details'}
+            {open ? "Hide Details" : "View Details"}
           </Button>
         </Card.Text>
         <Collapse in={open}>
