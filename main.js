@@ -29,5 +29,10 @@ nodemon running , manifest.json error
 exemples / deployment/todolist/
 "start": "node server/index.js",
     "start-dev": "nodemon server/index.js --ignore public --ignore client & webpack -w",
+=======current version
 
+"start": "react-scripts start && npm run start-server",
+    "start-server": "nodemon main.js",
+
+    
 */
