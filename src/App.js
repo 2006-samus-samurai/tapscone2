@@ -24,7 +24,7 @@ function App() {
 
   return (
     <Container className="my-4">
-      <h2> <GoogleBtn/></h2>
+      <h2> <GoogleBtn/> </h2>
       <h1 className="mb-4">GitHub Jobs</h1>
       <SearchForm params={params} onParamChange={handleParamChange} />
       <JobsPagination page={page} setPage={setPage} hasNextPage={hasNextPage} />
@@ -38,5 +38,13 @@ function App() {
     </Container>
   );
 }
+
+// function App() {
+//   return (
+//     <div className="App">
+//       <h1>Home</h1>
+//     </div>
+//   );
+// }
 
 export default App;
