@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useState } from 'react';
 import useFetchJobs from './useFetchJobs';
 import { Container } from 'react-bootstrap';
@@ -7,17 +6,6 @@ import Job from './Job';
 import JobsPagination from './JobsPagination';
 import SearchForm from './SearchForm';
 import './App.css';
-=======
-import React, { useState } from "react";
-import useFetchJobs from "./useFetchJobs";
-import { Container } from "react-bootstrap";
-import Job from "./Job";
-import JobsPagination from "./JobsPagination";
-import SearchForm from "./SearchForm";
-import "./App.css";
-
-import Card from "react-bootstrap/Card";
->>>>>>> 3691d9bea4ea2673a2374e02f606be4f90fc072b
 
 //code below pasted from github repo
 function App() {
