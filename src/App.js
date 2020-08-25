@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import useFetchJobs from './useFetchJobs';
 import { Container } from 'react-bootstrap';
@@ -6,6 +7,15 @@ import Job from './Job';
 import JobsPagination from './JobsPagination';
 import SearchForm from './SearchForm';
 import './App.css';
+import React, { useState } from "react";
+import useFetchJobs from "./useFetchJobs";
+import { Container } from "react-bootstrap";
+import Job from "./Job";
+import JobsPagination from "./JobsPagination";
+import SearchForm from "./SearchForm";
+import "./App.css";
+import Card from "react-bootstrap/Card";
+
 
 //code below pasted from github repo
 function App() {
@@ -33,6 +43,7 @@ function App() {
       {jobs.map((job) => {
         return <Job key={job.id} job={job} />;
       })}
+      ;
       <JobsPagination page={page} setPage={setPage} hasNextPage={hasNextPage} />
     </Container>
   );
