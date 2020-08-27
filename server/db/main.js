@@ -1,12 +1,12 @@
 const { db } = require("./models");
-const app = require("./app");
+const app = require("../app");
 
 const PORT = 3000;
 
 const init = async () => {
   try {
 
-    await db.sync();
+    await db.sync({force: true});
 
     app.listen(PORT, () => {
       console.log(`Listening at http://localhost:${PORT}`);
@@ -34,5 +34,5 @@ exemples / deployment/todolist/
 "start": "react-scripts start && npm run start-server",
     "start-server": "nodemon main.js",
 
-    
+
 */

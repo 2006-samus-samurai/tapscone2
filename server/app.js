@@ -8,8 +8,10 @@ app.use(express.static(path.join(__dirname, "./public"))); //serving up static f
 app.use(express.urlencoded({ extended: false })); //parsing middleware for form input data
 app.use(express.json());
 
-app.use("/jobs", require("./routes/jobs"));
-app.use("/users", require("./routes/users"));
+//api routes
+app.use('/api', require('./api'))
+
+
 
 // app.get("/", function (req, res) {
 //   res.redirect("/jobs/");
