@@ -1,4 +1,4 @@
-[
+const dummyData2 = [
   {
     id: '028821db-1f83-4ba2-876f-7ec065b69138',
     type: 'Full Time',
@@ -170,3 +170,5 @@
       'https://jobs.github.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBdXFHIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--dea3ea32a3919d5fec17619f150eb85b9ddf3282/logo_colorbg.jpg',
   },
 ];
+
+export default dummyData2;
