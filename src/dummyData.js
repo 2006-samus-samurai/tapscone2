@@ -6,34 +6,24 @@ const dummyData = {
     "job-4": { id: "job-4", content: "full-stack engineer" },
   },
   columns: {
-    wishlist: {
-      id: "wishlist",
+    "column-1": {
+      id: "column-1",
       title: "wish list",
       jobIds: ["job-1", "job-2", "job-3", "job-4"],
     },
-    applied: {
-      id: "applied",
+    "column-2": {
+      id: "column-2",
       title: "applied",
       jobIds: [],
     },
-    interview: {
-      id: "interview",
-      title: "interview scheduled",
-      jobIds: [],
-    },
-    offer: {
-      id: "offer",
-      title: "interview scheduled",
-      jobIds: [],
-    },
-    rejected: {
-      id: "rejected",
+    "column-3": {
+      id: "column-3",
       title: "interview scheduled",
       jobIds: [],
     },
   },
   // Facilitate reordering of the columns
-  columnOrder: ["wishlist", "applied", "interview", "offer", "rejected"],
+  columnOrder: ["column-1", "column-2", "column-3"],
 };
 
 export default dummyData;
