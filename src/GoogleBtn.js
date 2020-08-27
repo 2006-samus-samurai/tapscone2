@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { GoogleLogin, GoogleLogout } from "react-google-login";
+import axios from 'axios'
 
 const CLIENT_ID =
   "506202294134-6q0se8hgfiujrhaqi779dr81020tffo5.apps.googleusercontent.com";
@@ -11,6 +12,8 @@ class GoogleBtn extends Component {
     this.state = {
       isLogined: false,
       accessToken: "",
+      userName: '',
+      userImageUrl: ''
     };
 
     this.login = this.login.bind(this);
@@ -19,19 +22,29 @@ class GoogleBtn extends Component {
     this.handleLogoutFailure = this.handleLogoutFailure.bind(this);
   }
 
-  login(response) {
+  async login(response) {
+    console.log('Login Success: currentUser:', response.profileObj);
     if (response.accessToken) {
+      try {
+       await axios.post(`/auth/login`, response.profileObj)
+        
+      } catch (error) {
+        
+      }
       this.setState((state) => ({
         isLogined: true,
         accessToken: response.accessToken,
+        userName: response.profileObj.name,
+        userImageUrl: response.profileObj.imageUrl  
       }));
     }
   }
 
+
   logout(response) {
     this.setState((state) => ({
       isLogined: false,
-      accessToken: "",
+      accessToken: ""
     }));
   }
 
@@ -52,7 +65,7 @@ class GoogleBtn extends Component {
             buttonText="Logout"
             onLogoutSuccess={this.logout}
             onFailure={this.handleLogoutFailure}
-          ></GoogleLogout>
+          />
         ) : (
           <GoogleLogin
             clientId={CLIENT_ID}
@@ -61,10 +74,11 @@ class GoogleBtn extends Component {
             onFailure={this.handleLoginFailure}
             cookiePolicy={"single_host_origin"}
             responseType="code,token"
-          />
+          ></GoogleLogin>
         )}
-        
+        { this.state.isLogined? <h5>Welcome {this.state.userName} <br/><br/> <img src={this.state.userImageUrl} alt='userImage'/> </h5> : null }
       </div>
+      
     );
   }
 }
