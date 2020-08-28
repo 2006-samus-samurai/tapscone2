@@ -32,7 +32,7 @@ function App() {
       </div>
       <Container className="my-4">
         <h2>
-          <GoogleBtn />{" "}
+          <GoogleBtn />
         </h2>
         <h1 className="mb-4">GitHub Jobs</h1>
         <SearchForm params={params} onParamChange={handleParamChange} />

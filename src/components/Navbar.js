@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 //import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item">
               {/* <Link to="/">My Job Board</Link> */}
