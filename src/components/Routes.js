@@ -1,9 +1,9 @@
-import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import TrelloJobBoard from './TrelloJobBoard';
-import Navbar from './Navbar';
-import Search from './Search';
+import TrelloJobBoard from "./TrelloJobBoard";
+import Navbar from "./Navbar";
+import Search from "./Search";
 
 class Routes extends React.Component {
   render() {
@@ -18,9 +18,9 @@ class Routes extends React.Component {
           <Route exact path="/jobboard" component={TrelloJobBoard} />
           <Route exact path="/search" component={Search} />
         </div>
-        <footer class="footer">
-          <div class="container">
-            <span class="text-muted">
+        <footer className="footer">
+          <div className="container">
+            <span className="text-muted">
               I tried to make a footer. Copyright Katie 2020.
             </span>
           </div>

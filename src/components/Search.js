@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-import dummyData2 from './dummyData2';
+import dummyData2 from "./dummyData2";
 
 class Search extends React.Component {
   state = dummyData2;
@@ -9,7 +9,7 @@ class Search extends React.Component {
     const jobs = this.state;
     return (
       <div>
-        <div class="md-form mt-0">
+        <div className="md-form mt-0">
           <input
             class="form-control"
             type="text"

@@ -1,17 +1,31 @@
 import React from "react";
-//added 08/26 trello-board branch
 import { connect } from "react-redux";
-//___________________________________
 import TrelloColumn from "./TrelloColumn";
 import TrelloAddBtn from "./TrelloAddBtn";
-
-//import dummyData from "../dummyData";
 import { DragDropContext } from "react-beautiful-dnd";
+import { sort } from "../actions";
 
 class TrelloJobBoard extends React.Component {
+  onDragEnd = (result) => {
+    const { destination, source, draggableId } = result;
+
+    if (!destination) {
+      return;
+    }
+
+    this.props.dispatch(
+      sort(
+        source.droppableId,
+        destination.droppableId,
+        source.index,
+        destination.index,
+        draggableId
+      )
+    );
+  };
+
   render() {
     const { lists } = this.props;
-    console.log(lists);
 
     return (
       <DragDropContext onDragEnd={this.onDragEnd}>
@@ -30,8 +44,6 @@ class TrelloJobBoard extends React.Component {
     );
   }
 }
-
-//added 08/26 trello-board branch
 
 const mapStateToProps = (state) => ({
   lists: state.lists,

@@ -1,11 +1,21 @@
 import React from "react";
-//import { Draggable } from "react-beautiful-dnd";
+import { Draggable } from "react-beautiful-dnd";
 
-const TrelloCard = ({ text }) => {
+const TrelloCard = ({ text, id, index }) => {
   return (
-    <div className="card my-1">
-      <p>{text}</p>
-    </div>
+    <Draggable draggableId={String(id)} index={index}>
+      {(provided) => (
+        <div
+          ref={provided.innerRef}
+          {...provided.draggableProps}
+          {...provided.dragHandleProps}
+        >
+          <div className="card my-1">
+            <p>{text}</p>
+          </div>
+        </div>
+      )}
+    </Draggable>
   );
 };
 
