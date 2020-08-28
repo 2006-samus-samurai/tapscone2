@@ -27,8 +27,8 @@
     "typescript": "^4.0.2"
   },
   "scripts": {
-    "start": "react-scripts start && npm run start-server && npm run build-watch",
-    "start-server": "nodemon server/db/main.js",
+    "start": "npm run start-server && npm run build-watch",
+    "start-server": "node server/db/main.js",
     "build-watch": "webpack -w",
     "build": "react-scripts build",
     "test": "react-scripts test",
