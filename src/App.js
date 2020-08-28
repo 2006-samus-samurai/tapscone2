@@ -7,7 +7,6 @@ import JobsPagination from "./JobsPagination";
 import Routes from "./components/Routes";
 import SearchForm from "./SearchForm";
 import "./App.css";
-import TrelloJobBoard from "./components/TrelloJobBoard";
 
 //code below pasted from github repo
 function App() {
