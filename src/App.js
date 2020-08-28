@@ -7,7 +7,6 @@ import JobsPagination from "./JobsPagination";
 import Routes from "./components/Routes";
 import SearchForm from "./SearchForm";
 import "./App.css";
-import TrelloJobBoard from "./components/TrelloJobBoard";
 
 //code below pasted from github repo
 function App() {
@@ -33,7 +32,7 @@ function App() {
       </div>
       <Container className="my-4">
         <h2>
-          <GoogleBtn />{" "}
+          <GoogleBtn />
         </h2>
         <h1 className="mb-4">GitHub Jobs</h1>
         <SearchForm params={params} onParamChange={handleParamChange} />

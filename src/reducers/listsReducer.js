@@ -1,47 +1,47 @@
 import { CONSTANTS } from "../actions";
 
 let listID = 3;
-let cardID = 4;
+let cardID = 6;
 
 const initialState = [
   {
-    id: 0,
+    id: `list-${0}`,
     title: "Wishlist",
     cards: [
       {
-        id: 0,
+        id: `card-${0}`,
         text: "software engineer",
       },
       {
-        id: 1,
+        id: `card-${1}`,
         text: "front-end developer",
       },
     ],
   },
   {
-    id: 1,
+    id: `list-${1}`,
     title: "Applied",
     cards: [
       {
-        id: 2,
+        id: `card-${2}`,
         text: "software engineer",
       },
       {
-        id: 3,
+        id: `card-${3}`,
         text: "front-end developer",
       },
     ],
   },
   {
-    id: 2,
+    id: `list-${2}`,
     title: "Interview",
     cards: [
       {
-        id: 4,
+        id: `card-${4}`,
         text: "software engineer",
       },
       {
-        id: 5,
+        id: `card-${5}`,
         text: "front-end developer",
       },
     ],
@@ -54,15 +54,15 @@ const listsReducer = (state = initialState, action) => {
       const newList = {
         title: action.payload,
         cards: [],
-        id: listID,
+        id: `list-${listID}`,
       };
       listID += 1;
       return [...state, newList];
 
-    case CONSTANTS.ADD_CARD:
+    case CONSTANTS.ADD_CARD: {
       const newCard = {
         text: action.payload.text,
-        id: cardID,
+        id: `card-${cardID}`,
       };
       cardID += 1;
 
@@ -76,6 +76,40 @@ const listsReducer = (state = initialState, action) => {
           return list;
         }
       });
+
+      return newState;
+    }
+
+    case CONSTANTS.DRAG_HAPPENED:
+      const {
+        droppableIdStart,
+        droppableIdEnd,
+        droppableIndexStart,
+        droppableIndexEnd,
+        draggableId,
+      } = action.payload;
+
+      const newState = [...state];
+
+      //if the same list
+      if (droppableIdStart === droppableIdEnd) {
+        const list = state.find((list) => droppableIdStart === list.id);
+
+        const card = list.cards.splice(droppableIndexStart, 1);
+        list.cards.splice(droppableIndexEnd, 0, ...card);
+      }
+
+      //if the list is in different column
+
+      if (droppableIndexStart !== droppableIdEnd) {
+        const listStart = state.find((list) => droppableIdStart === list.id);
+
+        const card = listStart.cards.splice(droppableIndexStart, 1);
+
+        const listEnd = state.find((list) => droppableIdEnd === list.id);
+
+        listEnd.cards.splice(droppableIndexEnd, 0, ...card);
+      }
 
       return newState;
 
