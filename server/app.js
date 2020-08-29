@@ -11,10 +11,18 @@ app.use(express.json());
 //api routes
 app.use('/api', require('./api'))
 
+app.use('/', require('./api'))
 
+app.get('/', (req, res, next) => {
+  console.log("INSIDE APP GET")
+  res.sendFile(path.join(__dirname, '..', 'public', 'index.html'))
+})
+// app.use('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, '..', 'public/index.html'))
+// })
 
 // app.get("/", function (req, res) {
-//   res.redirect("/jobs/");
+//   res.redirect("/api/jobs/");
 // });
 
 
